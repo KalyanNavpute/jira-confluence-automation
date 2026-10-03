@@ -8,13 +8,13 @@
 
 ### Blocking Decisions
 
-#### C-01: Product scope does not match the constitution
+#### C-01: Product scope decision recorded
 
 **References**: Constitution Purpose and Technical Constraints; specification Sections 3, 10, 12, and 13.
 
-The constitution describes a Jira and Confluence automation project, but this feature explicitly excludes Confluence retrieval and publishing and assumes Jira-only integration. OD-007 asks whether Confluence is an input or destination, but there is no decision or scope boundary for the overall product.
+**Status**: Resolved in `spec/specification.md` as D-001.
 
-**Clarify**: Is this specification only for a Jira-based weekly reporting feature within a broader Jira/Confluence application, or must the initial product include a Confluence workflow? If Confluence is in scope, define the user scenario and acceptance criteria; if not, record that this feature is a deliberate exception to the broader project description.
+This specification covers Jira-based weekly status reporting within the broader Jira/Confluence automation project. Confluence retrieval and publishing are excluded from this feature's MVP; any future Confluence workflow requires a separately approved feature specification with user scenarios and acceptance criteria.
 
 #### C-02: CLI requirement conflicts with the browser workflow and technical constitution
 
@@ -168,7 +168,7 @@ The constitution sets React/Vite, Node/Express, and PostgreSQL 15 via Docker, bu
 
 Resolve these decisions before creating implementation tasks:
 
-1. C-01 and C-02: feature/product scope and required interface(s).
+1. C-02: required interface(s), including whether CLI is needed alongside the constitution's browser frontend.
 2. C-03 and G-01: report trigger and daily-refresh responsibilities.
 3. G-02, G-05, and G-07: Jira time semantics, mappings, and stale/partial-data policy.
 4. G-03, G-04, G-06, and G-08: required inputs, synthesis/ownership, and report behavior for missing or empty data.

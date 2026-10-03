@@ -8,19 +8,19 @@
 
 Deliver a browser-based weekly reporting application using React 18 with Vite, Node.js with Express, and PostgreSQL 15 via Docker. The planned MVP collects manual team updates, refreshes configured Jira data daily, creates and persists reviewable Markdown reports, and lets managers retrieve prior reports.
 
-This plan does not silently decide unresolved product questions. Phase 0 must resolve the blocking conflicts in `spec/clarify.md` before implementation scope is committed. Until then, the phases below are a dependency-ordered proposal; Confluence integration and a separate CLI are not assumed to be MVP deliverables.
+This plan does not silently decide unresolved product questions. Phase 0 must resolve the remaining blocking conflicts in `spec/clarify.md` before implementation scope is committed. The reporting feature is Jira-only within the broader Jira/Confluence application; Confluence integration and a separate CLI are not assumed to be MVP deliverables.
 
 ## 2. Planning Assumptions and Gates
 
 The following are provisional planning assumptions, not approved requirements:
 
 - The manager-facing browser workflow is the primary interface; a separate CLI is not included unless OD-001 is resolved in its favor.
-- Jira is the only external data integration in the reporting MVP; Confluence remains out of scope until C-01/OD-007 is resolved.
+- Jira is the only external data integration in the reporting MVP. Confluence retrieval and publishing are excluded from this feature; a future Confluence workflow requires a separately approved feature specification.
 - Managers trigger report generation; daily Jira refresh is a separate recurring operation, pending C-03 confirmation.
 - Jira integration, credentials, and authorization remain server-side.
 - Data model and implementation details will follow approved reporting semantics, freshness policy, artifact lifecycle, access roles, and retention decisions.
 
-**Do not pass Phase 0** while C-01, C-02, or C-03 remain unresolved, or while the decisions in G-02, G-03, G-04, G-07, G-09, and G-11 are too ambiguous to define the MVP contract.
+**Do not pass Phase 0** while C-02 or C-03 remain unresolved, or while the decisions in G-02, G-03, G-04, G-07, G-09, and G-11 are too ambiguous to define the MVP contract.
 
 ## 3. Phases and Milestones
 
@@ -30,7 +30,7 @@ The following are provisional planning assumptions, not approved requirements:
 
 **Work**:
 
-- Resolve C-01: confirm whether this feature is Jira-only within a broader Jira/Confluence product, or define Confluence workflows for this release.
+- Record resolved scope decision D-001: this reporting feature is Jira-only within the broader Jira/Confluence application; Confluence workflows require a separate approved feature scope.
 - Resolve C-02: choose browser-only, CLI-only under an approved architecture exception, or browser plus CLI.
 - Resolve C-03 and G-01: decide how reports are triggered and exactly which data is refreshed daily.
 - Decide Jira reporting-period semantics, field/status mappings, and the stale/partial-data policy (G-02, G-05, G-07).
@@ -211,7 +211,7 @@ M2 and M3 may be developed in parallel after M1 if the approved data contracts a
 
 | Milestone | Primary specification coverage |
 | --- | --- |
-| M0 | C-01 to C-03; G-01 to G-16; OD-001 to OD-009 |
+| M0 | D-001; C-02 to C-03; G-01 to G-16; OD-001 to OD-006 and OD-008 to OD-009 |
 | M1 | Constitution Technical Constraints; NFR-007, NFR-009 |
 | M2 | Scenario 1; FR-001 to FR-008; NFR-005 |
 | M3 | Scenario 2; FR-009 to FR-014; NFR-003, NFR-004, NFR-006, NFR-008 |
@@ -223,7 +223,7 @@ M2 and M3 may be developed in parallel after M1 if the approved data contracts a
 
 | Risk | Impact | Mitigation / gate |
 | --- | --- | --- |
-| Scope/interface decisions remain open | Rework or incompatible architecture | Resolve C-01 to C-03 before Phase 1 implementation |
+| Interface/scheduling decisions remain open | Rework or incompatible architecture | Resolve C-02 and C-03 before Phase 1 implementation |
 | Jira fields and status history vary by project | Incorrect weekly completion or risk reporting | Approve mappings and reporting-period semantics in Phase 0; test representative fixtures in Phase 3 |
 | Missing or late team updates | Misleading report completeness | Define contributor roster, required fields, and incomplete-report policy before Phase 2 |
 | Jira outages or rate limits | Stale or partial reporting inputs | Implement bounded retries, explicit refresh state, and approved stale-data behavior in Phase 3 |
@@ -232,7 +232,7 @@ M2 and M3 may be developed in parallel after M1 if the approved data contracts a
 
 ## 8. Explicitly Deferred
 
-- Confluence retrieval or publishing until C-01/OD-007 is resolved and a feature scenario is approved.
+- Confluence retrieval or publishing for this reporting feature; any future workflow requires a separately approved specification and task group.
 - A separate CLI until C-02/OD-001 is resolved.
 - Email distribution, approval workflows, real-time dashboards, forecasting, and other integrations, consistent with the specification's MVP exclusions.
 - Detailed API contracts, database schema, component boundaries, and deployment topology to the implementation design, once Phase 0 product decisions are settled.

@@ -34,7 +34,7 @@ Provide a repeatable way to collect team updates, combine them with Jira deliver
 - Real-time dashboards, advanced analytics, or forecasting.
 - Automated approval workflows.
 - Sending or publishing reports by email or to external destinations.
-- Confluence data retrieval or publishing until its role and required workflows are confirmed.
+- Confluence data retrieval and publishing are outside this reporting feature's MVP; any Confluence workflow requires a separately approved feature scope.
 - Integrations with other non-Jira systems.
 - Replacing Jira as the source of truth for issue status.
 
@@ -206,8 +206,8 @@ These are logical entities, not a prescribed physical database schema. Schema an
 - The implementation MUST follow `spec/constitution.md`: React 18/Vite frontend, Node.js/Express backend, and PostgreSQL 15 via Docker.
 - Jira and any future Confluence integration MUST be performed by the backend.
 - Jira and manual updates are the data sources defined by the source specification.
+- **D-001 (resolved)**: This specification covers Jira-based weekly status reporting as a feature within the broader Jira/Confluence automation project. Confluence retrieval and publishing are excluded from this feature's MVP; a future Confluence workflow requires a separately approved feature specification with user scenarios and acceptance criteria.
 - The source specification proposes a Python CLI, while the constitution constrains the application stack and this feature assumes a manager-facing browser workflow. Whether a separate CLI is also required is unresolved; implementation planning MUST record the decision before dropping or adding CLI support.
-- The source specification excludes non-Jira integrations, while the project constitution names Jira and Confluence automation. Confluence workflows remain outside this feature until their use cases and acceptance criteria are approved.
 - The source specification describes both a daily refresh and one-click weekly generation. This document treats daily refresh as a separate recurring operation and report generation as a manager-triggered weekly operation.
 
 ## 11. Success Criteria
@@ -230,7 +230,6 @@ These are logical entities, not a prescribed physical database schema. Schema an
 - **OD-004**: Which identity provider, application roles, and contributor access model are required?
 - **OD-005**: Should a report with stale or partially unavailable Jira data be blocked, or allowed with a prominent incomplete-data warning?
 - **OD-006**: What business timezone and exact time should the daily refresh use, and how should weekends/holidays be handled?
-- **OD-007**: Should Confluence be used as an input source, a publishing destination, or neither for the initial release?
 - **OD-008**: What report retention period and export/download behavior are required?
 - **OD-009**: Should team leads submit updates directly, or should the manager enter/approve all updates?
 

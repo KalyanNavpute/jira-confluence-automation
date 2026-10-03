@@ -17,8 +17,9 @@
 
 ### T001: Resolve product and integration scope
 
+**Status**: Complete (decision D-001 recorded in the specification)  
 **Dependencies**: None  
-**Traceability**: C-01, G-05, OD-007
+**Traceability**: C-01 (resolved as D-001)
 
 **Acceptance criteria**:
 
