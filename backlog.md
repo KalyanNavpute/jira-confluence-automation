@@ -59,3 +59,7 @@ Checkboxes reflect the current workspace as inspected on 2026-10-03. Complete ta
 - [ ] Provide a sample generated report and explain the output location and reporting-week/date behavior.
 - [ ] Document operational limitations, data-quality expectations, sensitive-data handling, and the deferred email/dashboard scope.
 - [ ] Update the existing project task tracking to reflect completed backlog items and remaining work.
+
+## Decisions
+
+- Batch processing in this release applies to Jira issue records and manual team updates, including pagination, aggregation, merging, and snapshot/report generation. Multi-file batch processing is not currently in scope.
