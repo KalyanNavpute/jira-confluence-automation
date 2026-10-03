@@ -3,6 +3,8 @@
 ## Tracked Files
 ```
 .agent.md
+.github/copilot-instructions.md
+.mcp.json
 .venv/bin/Activate.ps1
 .venv/bin/activate
 .venv/bin/activate.csh
@@ -576,21 +578,56 @@
 .venv/lib/python3.9/site-packages/setuptools/windows_support.py
 .venv/pyvenv.cfg
 .venv/smoke-test-report.md
+.vscode/mcp.json
 TODO.md
 backlog.md
+bulk_validate_walkthroughs.py
+compound_interest.py
+docs/qa-report.md
 generate_weekly_status_report.py
 greeting_tool.py
+instructions/calculate-compound-interest.agent.md
+instructions/create-status-report.agent.md
+instructions/creating-instructions.agent.md
+instructions/generate-weekly-status-report.agent.md
+instructions/main.agent.md
+instructions/use-compound-interest.agent.md
+instructions/use-simple-interest.agent.md
+instructions/write-tests.agent.md
 project_spec.md
 reports/example.md
 reports/instructions.md
 reports/template.md
+spec/analyze.md
+spec/checklist.md
+spec/clarify.md
+spec/constitution.md
+spec/plan.md
+spec/specification.md
+spec/tasks.md
+tests/fixtures/walkthroughs/complete.md
+tests/fixtures/walkthroughs/missing-quiz.md
+tests/fixtures/walkthroughs/missing-summary.md
+tools/compound_interest.py
+tools/simple_interest.py
+validation-rules.md
 work/module-08-report.md
+work/module-09-report.md
+work/module-10-report.md
 work/module-12-report.md
+work/module-13-report.md
+work/module-14-report.md
+work/module-15-report.md
+work/module-16-report.md
+work/module-17-report.md
+work/module-18-report.md
 work/weekly-status-report.md
 ```
 
 ## Backlog Commit History
 ```
+05b561f update for module 15
+512ad36 docs: link backlog task to issue #1
 0a94884 module 9
 ```
 
@@ -603,7 +640,7 @@ Checkboxes reflect the current workspace as inspected on 2026-10-03. Complete ta
 ## Setup
 
 - [x] Establish the project repository and `.gitignore`.
-- [ ] Set up a reproducible Python development environment and document the supported Python version.
+- [ ] Set up a reproducible Python development environment and document the supported Python version. (#1)
 - [ ] Add dependency management for runtime and development/test dependencies; keep the Jira client choice explicit and minimal.
 - [ ] Define the initial configuration contract for project name, owner/team, Jira project or board filter, output directory, and refresh settings.
 - [ ] Define where secrets are read from the organization's approved credential mechanism; do not store Jira credentials in source, config files, or logs.
@@ -657,4 +694,8 @@ Checkboxes reflect the current workspace as inspected on 2026-10-03. Complete ta
 - [ ] Provide a sample generated report and explain the output location and reporting-week/date behavior.
 - [ ] Document operational limitations, data-quality expectations, sensitive-data handling, and the deferred email/dashboard scope.
 - [ ] Update the existing project task tracking to reflect completed backlog items and remaining work.
+
+## Decisions
+
+- Batch processing in this release applies to Jira issue records and manual team updates, including pagination, aggregation, merging, and snapshot/report generation. Multi-file batch processing is not currently in scope.
 ```
