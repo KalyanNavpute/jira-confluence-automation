@@ -5,7 +5,7 @@ Checkboxes reflect the current workspace as inspected on 2026-10-03. Complete ta
 ## Setup
 
 - [x] Establish the project repository and `.gitignore`.
-- [ ] Set up a reproducible Python development environment and document the supported Python version.
+- [ ] Set up a reproducible Python development environment and document the supported Python version. (#1)
 - [ ] Add dependency management for runtime and development/test dependencies; keep the Jira client choice explicit and minimal.
 - [ ] Define the initial configuration contract for project name, owner/team, Jira project or board filter, output directory, and refresh settings.
 - [ ] Define where secrets are read from the organization's approved credential mechanism; do not store Jira credentials in source, config files, or logs.
